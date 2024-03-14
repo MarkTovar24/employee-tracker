@@ -11,40 +11,48 @@ VALUES ('Management Team'),
 INSERT INTO role (title, salary, department_id)
 VALUES 
         /* Management Team*/
-        ('Head Manager', 100000, 1),
-        ('General Manager', 70000, 1),
-        ('Assistant Manager', 65000, 1),
+        /*1*/ ('Head Manager', 100000, 1),
+        /*2*/ ('General Manager', 70000, 1),
+        /*3*/ ('Assistant Manager', 65000, 1),
 
         /*Curbside Valet Team*/
-        ('Valet Supervisor', 55000, 2),
-        ('Valet Team Lead', 60000, 2),
-        ('Valet Crew', 35000, 2),
+        /*4*/ ('Valet Supervisor', 55000, 2),
+        /*5*/ ('Valet Team Lead', 60000, 2),
+        /*6*/ ('Valet Crew', 35000, 2),
 
 
         /*Rover Team*/
-        ('Rover Supervisor', 60000, 3),
-        ('Rover Dispatcher',50000, 3 ),
-        ('Rover Driver', 45000, 3),
+        /*7*/ ('Rover Supervisor', 60000, 3),
+        /*8*/ ('Rover Dispatcher',50000, 3 ),
+        /*9*/ ('Rover Driver', 45000, 3),
 
         /*Shuttle Team*/
-        ('Shuttle Supervisor', 60000, 4),
-        ('Shuttle Dispatcher', 50000, 4),
-        ('Shuttle Driver', 45000, 4),
+        /*10*/ ('Shuttle Supervisor', 60000, 4),
+        /*11*/ ('Shuttle Dispatcher', 50000, 4),
+        /*12*/ ('Shuttle Driver', 45000, 4),
 
         /*Traffic Control*/ 
-        ('Traffic Control Supervisor', 45000, 5),
-        ('Traffic Control Crew', 25000, 5),
+        /*13*/ ('Traffic Control Supervisor', 45000, 5),
+        /*14*/ ('Traffic Control Crew', 25000, 5),
 
         /*Keyroom*/
-        ('Keyroom Supervisor', 65000, 6),
-        ('Keyroom Cashier', 55000, 6);
+        /*15*/ ('Keyroom Supervisor', 65000, 6),
+        /*16*/ ('Keyroom Cashier', 55000, 6);
 
 
-INSERT INTO employees (first_name, last_name, role_id, salary, manager_id)
-VALUES 
-        ('Micah', 'Bell', 1, 100000, NULL), 
-        ('John', 'Marston', 5, 55000, NULL),
-        ('Frank', 'Gallagher', 14, 25000, NULL),
-        ('George', 'Foreman', 6, 35000, 2),
-        ('Stuart', 'Mackenzie', 8, 50000, NULL);
+INSERT INTO employees (first_name, last_name, role_id, manager_id, salary)
+VALUES ('George', 'Foreman', 1, NULL, 100000),
+       ('Joe', 'Frazier', 2, NULL, 70000),
+       ('Earnie', 'Shavers', 3, NULL, 65000)
+        
+INSERT INTO employees (first_name, last_name, role_id, manager_id, salary,)
+VALUES  ('John', 'Marston', 4, 1, 55000),
+        ('Micah', 'Bell', 6, 3, 35000),
+        ('Frank', 'Gallagher', 13, 2, 25000),
+        ('Veronica', 'Fisher', 15, 2, 65000)
+
+
+
+
+/*REMINDER: MANAGER ID'S REFER TO THE ORDER IN WHICH MANAGERS ARE INSERTED*/
         
