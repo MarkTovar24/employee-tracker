@@ -23,7 +23,7 @@ CREATE TABLE role (
         id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
         first_name VARCHAR(30) NOT NULL,
         last_name VARCHAR(30) NOT NULL,
-        role_id INT NOT NULL,
+        role_id INT ,
         salary INT NOT NULL,
         manager_id INT,
 

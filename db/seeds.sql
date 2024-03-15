@@ -43,13 +43,13 @@ VALUES
 INSERT INTO employees (first_name, last_name, role_id, manager_id, salary)
 VALUES ('George', 'Foreman', 1, NULL, 100000),
        ('Joe', 'Frazier', 2, NULL, 70000),
-       ('Earnie', 'Shavers', 3, NULL, 65000)
+       ('Earnie', 'Shavers', 3, NULL, 65000);
         
-INSERT INTO employees (first_name, last_name, role_id, manager_id, salary,)
+INSERT INTO employees (first_name, last_name, role_id, manager_id, salary)
 VALUES  ('John', 'Marston', 4, 1, 55000),
         ('Micah', 'Bell', 6, 3, 35000),
         ('Frank', 'Gallagher', 13, 2, 25000),
-        ('Veronica', 'Fisher', 15, 2, 65000)
+        ('Veronica', 'Fisher', 15, 2, 65000);
 
 
 
