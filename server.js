@@ -16,7 +16,7 @@ function menu() {
     inquirer.prompt({
         name: 'action',
         message: 'What would you like to do?',
-        choices: ['View Roles', 'View Department', 'View Employees', 'Add Department', 'Add Role', 'Add Employee', 'Update Employee Role'],
+        choices: ['View Roles', 'View Department', 'View Employees', 'Add Department', 'Add Role', 'Add Employee'],
         type: 'list'
     }).then(res => {
         if (res.action === 'View Roles') {
@@ -46,11 +46,6 @@ function menu() {
 
         if (res.action === 'Add Employee') {
             addEmp();
-
-        };
-
-        if (res.action === 'Update Employee Role') {
-            updateRole();
 
         };
 
@@ -94,7 +89,7 @@ function menu() {
             menu();
         });
     }
-//Add Department, Runs inquirer to fill out department info and inserts into the database
+//Add Department, Runs inquirer to fill out department info and inserts into the database with sql dialect
     async function addDept() {
         const res = await inquirer.prompt([
             {
@@ -106,7 +101,7 @@ function menu() {
 
         let params = [res.deptName];
 
-        db.query(`INSERT INTO department (department_name) VALUES (?)`, params,(err, rows) => {
+        db.query(`INSERT INTO department (department_name) VALUES (?)`, params,(err) => {
             if(err) {
                 console.log(err);
                 return;
@@ -115,7 +110,7 @@ function menu() {
             menu();
         });
     }
-//Add Roles, Asks inquirer questions and
+//Add Roles, Asks inquirer questions and gets an HTTP response for the title, salary and dept id. then runs sql dialect to insert into database
 async function addRole() {
      const res = await inquirer.prompt([
         {
@@ -139,7 +134,7 @@ async function addRole() {
 
     
     let params = [res.title, res.salary, res.department_id];
-    db.query(`INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)`, params, (err, rows) => {
+    db.query(`INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)`, params, (err) => {
         if (err) {
             console.log(err);
             return;
@@ -184,9 +179,8 @@ async function addEmp() {
 
     let sql = 'INSERT INTO employees (first_name, last_name, role_id, salary, manager_id) VALUES (?, ?, ?, ?, ?)';
     let params = Object.values(res)
-    console.log(params)
 
-    db.query(sql, params, (err, rows) => {
+    db.query(sql, params, (err) => {
         if (err) {
             console.log(err);
             return;
@@ -195,4 +189,6 @@ async function addEmp() {
         menu();
     })
 }
+
+//Figure out how to update roles
 menu();
